@@ -6,6 +6,7 @@ interface TypographyProps {
   margin?: string;
   align?: "center" | "left" | "right" | "justify";
   variant:
+    | "title"
     | "title1"
     | "title2"
     | "title3"
@@ -52,7 +53,7 @@ const fontFamily: { [key: string]: string } = {
   body1: "Inter",
 };
 const lineHeight: { [key: string]: string } = {
-  title1: "30px",
+  title1: "80px",
   title2: "40px",
   body1: "25px",
 };
