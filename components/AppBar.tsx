@@ -27,11 +27,10 @@ const StyledWrapper = {
 
 const AppHeader = () => {
   return (
-    <Container displayFlex>
+    <Container displayFlex justifyBetween>
       <Icons.Logo />
-
-      <div> hello </div>
-      <div></div>
+      <Container></Container>
+      <Container></Container>
     </Container>
   );
 };
