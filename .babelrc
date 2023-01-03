@@ -1,0 +1,38 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "useBuiltIns": "usage"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "inline-react-svg",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@modules": "./modules",
+          "@components": "./components",
+          "@assets": "./assets",
+          "@layout": "./layout",
+          "@actions": "./actions",
+          "@actionTypes": "./actionTypes",
+          "@static": "./static",
+          "@store": "./store",
+          "@sagas": "./sagas",
+          "@reducers": "./reducers",
+          "@dummy": "./dummy"
+        }
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "presets": [["@babel/preset-env", { "modules": false }], "next/babel"]
+    }
+  }
+}
