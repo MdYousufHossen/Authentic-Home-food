@@ -4,9 +4,9 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
