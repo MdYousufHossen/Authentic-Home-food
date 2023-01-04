@@ -33,7 +33,7 @@ interface ContainerProps {
 const Container = styled.div<ContainerProps>`
   position: relative;
   ${(p) => p.height && `height: ${p.height};`}
-  ${(p) => (p.width ? `width: ${p.width};` : `width: 69%;`)}
+  ${(p) => (p.width ? `width: ${p.width};` : `width: 85%;`)}
     margin: auto;
   ${(p) => p.pt && `padding-top: ${p.pt};`}
   ${(p) => p.pb && `padding-bottom: ${p.pb};`}

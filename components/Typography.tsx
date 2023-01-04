@@ -55,7 +55,7 @@ const fontFamily: { [key: string]: string } = {
 const lineHeight: { [key: string]: string } = {
   title1: "80px",
   title2: "40px",
-  body1: "25px",
+  body1: "20px",
 };
 
 const Typography = styled.h6<TypographyProps>`

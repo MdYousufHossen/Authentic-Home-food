@@ -1,4 +1,5 @@
 import Cooke from "@assets/images/cooke.svg";
+import FormStyle from "styles/Input";
 import AppHeader from "./AppBar";
 import Container from "./Container";
 import Typography from "./Typography";
@@ -20,8 +21,15 @@ const Banner = () => {
             delivered to a customer.
           </Typography>
           <br />
-          <input type="search" />
-          <button>Search</button>
+          <FormStyle.Wrapper>
+            <FormStyle.Input
+              br="10px 0px 0px 10px"
+              width="285px"
+              height="58px"
+              placeholder="Search food you love."
+            />
+            <FormStyle.Button>Search</FormStyle.Button>
+          </FormStyle.Wrapper>
         </Container>
         <Cooke />
       </Container>
