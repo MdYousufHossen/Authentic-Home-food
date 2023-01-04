@@ -1,0 +1,32 @@
+import Cooke from "@assets/images/cooke.svg";
+import AppHeader from "./AppBar";
+import Container from "./Container";
+import Typography from "./Typography";
+const Banner = () => {
+  return (
+    <Container height="100vh" width="100%" background="#0C1712">
+      <AppHeader />
+      <Container displayFlex>
+        <Container width="50%">
+          <Typography color="white" variant="title1">
+            Authentic Home
+          </Typography>
+          <Typography color="white" variant="title1">
+            Food in UK
+          </Typography>
+          <br />
+          <Typography color="white" variant="body1">
+            What2Eat is a courier service in which authentic home cook food is
+            delivered to a customer.
+          </Typography>
+          <br />
+          <input type="search" />
+          <button>Search</button>
+        </Container>
+        <Cooke />
+      </Container>
+    </Container>
+  );
+};
+
+export default Banner;
