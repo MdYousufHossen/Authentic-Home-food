@@ -21,8 +21,9 @@ interface cardPropTypes {
   blog?: boolean;
   image: String;
   name?: String;
+  price?: number;
 }
-const Card = ({ blogMiddle, blog, image }: cardPropTypes) => {
+const Card = ({ blogMiddle, blog, image, name, price }: cardPropTypes) => {
   const myLoader = () => {
     return `${image}`;
   };
@@ -53,8 +54,8 @@ const Card = ({ blogMiddle, blog, image }: cardPropTypes) => {
       ) : (
         <Fragment>
           <Container width="90%" displayFlex justifyBetween>
-            <Typography variant="body1">Home made pizza</Typography>
-            <Typography variant="body1">$19 </Typography>
+            <Typography variant="body1">{name}</Typography>
+            <Typography variant="body1">${price} </Typography>
           </Container>
           <Container width="90%" displayFlex justifyBetween alignItemsCenter>
             <Container width="100%" displayFlex alignItemsCenter>
