@@ -1,5 +1,5 @@
-import { Icons } from "@assets/icons";
 import Container from "./Container";
+import { Icon, ICON_NAME } from "./Icon";
 import Typography from "./Typography";
 
 const Footer = () => {
@@ -35,8 +35,8 @@ const Footer = () => {
           </Typography>
         </Container>
         <Container width="20%" displayFlex justifyBetween>
-          <Icons.Facebook />
-          <Icons.Instagram />
+          <Icon name={ICON_NAME.Facebook} height={26} width={28} />
+          <Icon name={ICON_NAME.Instagram} height={26} width={28} />
         </Container>
       </Container>
       <Container>

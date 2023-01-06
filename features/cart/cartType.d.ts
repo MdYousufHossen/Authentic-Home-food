@@ -1,3 +1,15 @@
+type priductItem = Pick<
+  ProductType,
+  | "id"
+  | "name"
+  | "price"
+  | "quantity"
+  | "vat"
+  | "addon"
+  | "quantity_available"
+  | "image"
+>;
+
 declare interface CartType {
   customer: {
     name: string;
@@ -9,5 +21,6 @@ declare interface CartType {
     vat: number;
     total: number;
   };
-  items: ProductType[];
+  items: priductItem[];
+  isProductavailable: boolean;
 }
