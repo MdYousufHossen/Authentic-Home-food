@@ -10,10 +10,12 @@ const OurBlog = () => {
           <Card
             image="https://res.cloudinary.com/duzw4loaz/image/upload/v1672840254/job-task/food-images/images/unsplash_vrrhv7.svg"
             blog
+            product={undefined}
           />
           <Card
             image="https://res.cloudinary.com/duzw4loaz/image/upload/v1672840253/job-task/food-images/images/unsplash1_jhexee.svg"
             blog
+            product={undefined}
           />
         </div>
 
@@ -22,6 +24,7 @@ const OurBlog = () => {
             image="https://res.cloudinary.com/duzw4loaz/image/upload/v1672840254/job-task/food-images/images/unsplash2_xx9ytt.svg"
             blog
             blogMiddle
+            product={undefined}
           />
         </div>
 
@@ -29,10 +32,12 @@ const OurBlog = () => {
           <Card
             image="https://res.cloudinary.com/duzw4loaz/image/upload/v1672840253/job-task/food-images/images/unsplash3_gwm33j.svg"
             blog
+            product={undefined}
           />
           <Card
             image="https://res.cloudinary.com/duzw4loaz/image/upload/v1672840255/job-task/food-images/images/unsplash4_rxul2m.svg"
             blog
+            product={undefined}
           />
         </div>
       </Container>

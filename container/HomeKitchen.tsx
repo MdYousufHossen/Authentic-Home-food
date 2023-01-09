@@ -17,17 +17,11 @@ const HomeKitchen = () => {
   } else if (!isLoading && !isError && data?.length === 0) {
     content = <Typography variant="title4">Product Not Found!</Typography>;
   } else if (!isLoading && !isError && data && data?.length > 0) {
+    console.log(data);
     content = (
       <Container width="100%" padding="20px 0" displayFlex flexWrape gap="10px">
         {data.map((pd) => {
-          return (
-            <Card
-              name={pd.name}
-              key={pd.id}
-              price={pd.price}
-              image={pd.image}
-            />
-          );
+          return <Card key={pd.id} product={pd} image={pd.image} />;
         })}
       </Container>
     );

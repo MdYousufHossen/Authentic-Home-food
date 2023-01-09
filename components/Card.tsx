@@ -1,8 +1,10 @@
-import { Icons } from "@assets/icons";
+import { addToCart } from "@features/cart/cartSlice";
+import { useAppDispatch } from "app/hooks";
 import Image from "next/image";
 import { Fragment } from "react";
 import styled from "styled-components";
 import Container from "./Container";
+import { Icon, ICON_NAME } from "./Icon";
 import Typography from "./Typography";
 const CardStyled = {
   Wrapper: styled.div<{ width?: string; height?: string }>`
@@ -19,14 +21,33 @@ const CardStyled = {
 interface cardPropTypes {
   blogMiddle?: boolean;
   blog?: boolean;
-  image: String;
-  name?: String;
-  price?: number;
+  image?: String;
+  product: ProductType;
 }
-const Card = ({ blogMiddle, blog, image, name, price }: cardPropTypes) => {
+const Card = ({ blogMiddle, blog, image, product }: cardPropTypes) => {
   const myLoader = () => {
     return `${image}`;
   };
+  const dispatch = useAppDispatch();
+
+  const acceptableProduct: priductItem = {
+    id: product?.id,
+    name: product?.name,
+    vat: product?.vat,
+    image: product?.image,
+    addon: {
+      name: product?.addons[0]?.name,
+      price: product?.addons[0]?.price,
+    },
+    price: product?.price,
+    quantity_available: product?.quantity_available,
+    quantity: 1,
+  };
+
+  const handleAddToCard = () => {
+    dispatch(addToCart(acceptableProduct));
+  };
+
   return (
     <CardStyled.Wrapper
       width={blogMiddle && "400px"}
@@ -54,8 +75,8 @@ const Card = ({ blogMiddle, blog, image, name, price }: cardPropTypes) => {
       ) : (
         <Fragment>
           <Container width="90%" displayFlex justifyBetween>
-            <Typography variant="body1">{name}</Typography>
-            <Typography variant="body1">${price} </Typography>
+            <Typography variant="body1">{product.name}</Typography>
+            <Typography variant="body1">${product.price} </Typography>
           </Container>
           <Container width="90%" displayFlex justifyBetween alignItemsCenter>
             <Container width="100%" displayFlex alignItemsCenter>
@@ -66,7 +87,8 @@ const Card = ({ blogMiddle, blog, image, name, price }: cardPropTypes) => {
                 br="10px"
                 variant="body1"
               >
-                <Icons.Star /> 4.7
+                <Icon name={ICON_NAME.Star} height={13} width={13} />
+                4.7
               </Typography>
               <Typography
                 pl="5px"
@@ -78,7 +100,15 @@ const Card = ({ blogMiddle, blog, image, name, price }: cardPropTypes) => {
                 50-79 min
               </Typography>
             </Container>
-            <Icons.AddToCart />
+
+            {/* <button > */}
+            <Icon
+              onClick={handleAddToCard}
+              name={ICON_NAME.AddToCart}
+              height={21}
+              width={23}
+            />
+            {/* </button> */}
           </Container>
         </Fragment>
       )}
