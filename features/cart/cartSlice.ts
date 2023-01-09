@@ -1,17 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState: CartType = {
-  customer: {
-    name: "",
-    address: "",
-    phone: "",
-  },
-  calculation: {
-    price: 0,
-    vat: 0,
-    total: 0,
-  },
-  items: [],
+const initialState: any = {
+  cart: [],
   isProductavailable: false,
 };
 
@@ -19,50 +9,37 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<priductItem>) => {
-      // const restCart = [...state.items, action.payload];
-
-      // const arrayUniqueByKey = [
-      //   ...(new Map(
-      //     restCart.map((item: priductItem) => [item["id"], item])
-      //   ).values() as unknown as Array<priductItem>),
-      // ];
-      let restCart;
-      const quantityUpdate = state?.items?.find(
+    addToCart: (state, action: PayloadAction<Partial<priductItem>>) => {
+      // Find product is already exist in the cart...
+      const product = state?.cart?.find(
         (item) => item.id === action.payload.id
       );
-      if (quantityUpdate) {
-        restCart = state.items.map((item) => {
-          if (item.id === quantityUpdate.id) {
-            if (item.quantity < quantityUpdate.quantity_available) {
-              state.isProductavailable = false;
-              item.quantity = item.quantity + 1;
 
-              return item;
-            } else {
-              state.isProductavailable = true;
-            }
-          }
-          return item;
-        });
+      if (product) {
+        if (product.quantity < product.quantity_available)
+          product.quantity += 1;
       } else {
-        const quantity = 1;
-        const item = {
-          ...action.payload,
-          quantity,
-        };
-        state.isProductavailable = false;
-        restCart = [...state.items, item];
+        state.cart.push(action.payload);
       }
-      const price = restCart.reduce((a, b) => a + b.price * b.quantity, 0);
-      const vat = restCart.reduce((a, b) => a + b.vat * b.quantity, 0);
-      state.calculation.price = price;
-      state.calculation.vat = vat;
-      state.calculation.total = price + vat;
-      state.items = restCart;
+    },
+    removeToCart: (state, action: PayloadAction<any>) => {
+      //Remove product from the cart
+      state.cart = state.cart.filter((item) => item.id !== action.payload);
+    },
+    decreaseProductQuantity: (state, action) => {
+      // Find product that already exist in the cart
+      const product = state.cart.find((item) => item.id === action.payload);
+      // Check product quantity greater than 1
+      if (product?.quantity > 1) {
+        product.quantity -= 1;
+      } else {
+        // Remove product from the cart
+        state.cart = state.cart.filter((item) => item.id !== action.payload);
+      }
     },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeToCart, decreaseProductQuantity } =
+  cartSlice.actions;
 export default cartSlice.reducer;

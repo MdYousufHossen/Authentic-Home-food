@@ -1,10 +1,10 @@
 import { useAppSelector } from "app/hooks";
+import Link from "next/link";
 import { Fragment, useState } from "react";
 import styled from "styled-components";
 import AbsoluteContent from "./AbsoluteContent";
 import Container from "./Container";
 import { Icon, ICON_NAME } from "./Icon";
-import Modal from "./Modal";
 import Typography from "./Typography";
 const StyledWrapper = {
   Wrapper: styled.div`
@@ -31,17 +31,13 @@ const StyledWrapper = {
 };
 
 const AppBar = () => {
-  const { items, isProductavailable } = useAppSelector((state) => state.cart);
-  const quantity = items.reduce((a, b) => a + b.quantity, 0);
+  const { cart } = useAppSelector((state) => state.cart);
+  const quantity = cart?.reduce((a, b) => a + b.quantity, 0);
   const [opened, setOpened] = useState<boolean>(false);
   const controleModal = () => {
     setOpened((prevState) => !prevState);
   };
-  // useEffect(() => {
-  //   if (isProductavailable) {
-  //     controleModal();
-  //   }
-  // }, [isProductavailable]);
+
   return (
     <Fragment>
       <Container width="80%" padding="20px" displayFlex justifyBetween>
@@ -68,12 +64,15 @@ const AppBar = () => {
         <Container width="20%" alignItemsCenter justifyBetween displayFlex>
           <Icon name={ICON_NAME.Search} height={21} width={21} />
           <Container width="fit-content">
-            <Icon
-              name={ICON_NAME.Card}
-              onClick={controleModal}
-              height={21}
-              width={21}
-            />
+            <Link href="/cart">
+              <Icon
+                name={ICON_NAME.Card}
+                onClick={controleModal}
+                height={21}
+                width={21}
+              />
+            </Link>
+
             <AbsoluteContent top="-13px" left="12px">
               <Typography
                 background="red"
@@ -91,7 +90,6 @@ const AppBar = () => {
           </Container>
         </Container>
       </Container>
-      <Modal open={opened} control={controleModal} />
     </Fragment>
   );
 };

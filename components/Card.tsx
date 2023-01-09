@@ -41,6 +41,7 @@ const Card = ({ blogMiddle, blog, image, product }: cardPropTypes) => {
     },
     price: product?.price,
     quantity_available: product?.quantity_available,
+    quantity: 1,
   };
 
   const handleAddToCard = () => {

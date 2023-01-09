@@ -1,15 +1,17 @@
 import AddToCart from "@assets/icons/addToCart.svg";
 import Card from "@assets/icons/Card.svg";
+import Cross from "@assets/icons/cross.svg";
 import Facebook from "@assets/icons/Facebook.svg";
 import Instagram from "@assets/icons/instagram.svg";
 import Logo from "@assets/icons/logo.svg";
+import Minus from "@assets/icons/minus.svg";
+import Plus from "@assets/icons/plus.svg";
 import Search from "@assets/icons/search.svg";
 import Star from "@assets/icons/star.svg";
 import { MouseEventHandler } from "react";
 import styled from "styled-components";
 import AbsoluteContent from "./AbsoluteContent";
 import EmptyHolderDiv from "./EmptyHolderDiv";
-
 export interface IconProps {
   name: string;
   height: number;
@@ -52,6 +54,9 @@ const ICON = {
   Logo,
   Search,
   Star,
+  Minus,
+  Plus,
+  Cross,
 };
 export const ICON_NAME: { [key: string]: string } = {
   AddToCart: "AddToCart",
@@ -61,6 +66,9 @@ export const ICON_NAME: { [key: string]: string } = {
   Logo: "Logo",
   Search: "Search",
   Star: "Star",
+  Minus: "Minus",
+  Plus: "Plus",
+  Cross: "Cross",
 };
 
 export const Icon = (props: IconProps) => {

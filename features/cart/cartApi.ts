@@ -2,10 +2,14 @@ import { apiSlice } from "../api/apiSlice";
 
 export const cartApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    // getProducts: builder.query<ProductType[], void>({
-    //   query: () => "/products",
-    // }),
+    placeOrder: builder.mutation<any, any>({
+      query: (data) => ({
+        url: "/order",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const {} = cartApi;
+export const { usePlaceOrderMutation } = cartApi;
