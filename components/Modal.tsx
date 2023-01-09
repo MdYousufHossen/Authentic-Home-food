@@ -1,4 +1,5 @@
 import { usePlaceOrderMutation } from "@features/cart/cartApi";
+import { resetCart } from "@features/cart/cartSlice";
 import FormStyle from "@styles/form";
 import ModalStyle from "@styles/modal";
 import { useAppDispatch, useAppSelector } from "app/hooks";
@@ -19,6 +20,7 @@ const Modal = ({ open, control }: ModalPropType) => {
   const [phone, setPhone] = useState<string>("");
   const [placeOrder, { data, isLoading, error, isError, isSuccess }] =
     usePlaceOrderMutation();
+
   const { cart } = useAppSelector((state) => state.cart);
   const totalPrice = getPrice(cart, "totalPrice");
   const totalVat = getPrice(cart, "totalVat");
@@ -48,6 +50,7 @@ const Modal = ({ open, control }: ModalPropType) => {
       setName("");
       setAddress("");
       setPhone("");
+      dispatch(resetCart());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);

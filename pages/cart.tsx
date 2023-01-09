@@ -17,10 +17,16 @@ import getPrice from "utils/getPrice";
 const Cart = () => {
   const { cart } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
+  const [opened, setOpened] = useState<boolean>(false);
+  if (!cart[0])
+    return (
+      <Typography align="center" variant="title3">
+        Please add to Cart.
+      </Typography>
+    );
   const totalPrice = getPrice(cart, "totalPrice");
   const totalVat = getPrice(cart, "totalVat");
 
-  const [opened, setOpened] = useState<boolean>(false);
   const controleModal = () => {
     setOpened((prevState) => !prevState);
   };
