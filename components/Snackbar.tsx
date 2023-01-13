@@ -57,7 +57,7 @@ const Snackbar = ({ timeout, variant }: PropsType) => {
         <Button>
           <Icon
             onClick={handleClose}
-            color="black"
+            color="white"
             name={ICON_NAME.Cross}
             height={13}
             width={13}

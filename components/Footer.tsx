@@ -9,15 +9,21 @@ const Footer = () => {
         pt="20px"
         pb="20px"
         displayFlex
+        mobile={"flex-direction:column"}
         justifyBetween
         alignItemsCenter
       >
-        <Container width="100%">
+        <Container width="100%" mobile={"width:fit-content"}>
           <Typography pr="10px" color="white" variant="title">
             WHAT2EAT
           </Typography>
         </Container>
-        <Container width="100%" displayFlex alignItemsCenter>
+        <Container
+          width="100%"
+          displayFlex
+          mobile={"flex-direction:column"}
+          alignItemsCenter
+        >
           <Typography pr="10px" color="white" variant="title">
             Home
           </Typography>

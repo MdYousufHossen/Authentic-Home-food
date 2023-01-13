@@ -9,7 +9,7 @@ const Contact = () => {
         pb="50px"
         pt="50px"
         displayFlex
-        mobile={"flex-direction:column"}
+        mobile={"flex-direction:column; width:100%"}
       >
         <Container width="70%" mobile={"width:100%"}>
           <Typography variant="title5">Do you have a question</Typography>
