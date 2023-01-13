@@ -5,7 +5,13 @@ const OurBlog = () => {
   return (
     <Container pt="50px">
       <Typography variant="title5">Our Blog</Typography>
-      <Container width="100%" displayFlex justifyContentCenter justifyBetween>
+      <Container
+        width="100%"
+        displayFlex
+        mobile={"flex-direction:column"}
+        justifyContentCenter
+        justifyBetween
+      >
         <div>
           <Card
             image="https://res.cloudinary.com/duzw4loaz/image/upload/v1672840254/job-task/food-images/images/unsplash_vrrhv7.svg"

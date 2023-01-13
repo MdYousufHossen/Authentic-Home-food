@@ -7,8 +7,8 @@ const Banner = () => {
   return (
     <Container height="100vh" width="100%" background="#0C1712">
       <AppHeader />
-      <Container displayFlex>
-        <Container width="50%">
+      <Container displayFlex mobile={"flex-direction:column;width:100%"}>
+        <Container width="50%" mobile={"width:100%"}>
           <Typography color="white" variant="title1">
             Authentic Home
           </Typography>

@@ -1,5 +1,6 @@
 import Card from "@components/Card";
 import Container from "@components/Container";
+import Snackbar from "@components/Snackbar";
 import Typography from "@components/Typography";
 import { useGetProductsQuery } from "@features/product/productsApi";
 
@@ -34,6 +35,8 @@ const HomeKitchen = () => {
         </Typography>
         {content}
       </Container>
+
+      <Snackbar variant="warning" timeout={3000} />
     </Container>
   );
 };

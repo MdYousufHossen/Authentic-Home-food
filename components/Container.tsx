@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "universal/breakpoints/displayBreakpoints";
 
 interface ContainerProps {
   height?: string;
@@ -65,6 +66,12 @@ const Container = styled.div<ContainerProps>`
     ` ::-webkit-scrollbar {
         display: none;
     }`}
+    @media ${device.mobileL} {
+    ${(p) => p.mobile}
+  }
+  // @media ${device.tablet} {
+  //   ${(p) => p.mobile}
+  // }
 `;
 
 export default Container;
