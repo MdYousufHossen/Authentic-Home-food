@@ -1,8 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState: any = {
+const initialState: CartType = {
   cart: [],
-  isProductavailable: false,
   toggleSnackbar: false,
   snackbarMessage: null,
   snackbarVariant: null,
@@ -12,7 +11,7 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<Partial<priductItem>>) => {
+    addToCart: (state, action: PayloadAction<Partial<ProductType>>) => {
       // Find product is already exist in the cart...
       const product = state.cart?.find((item) => item.id === action.payload.id);
 
@@ -28,11 +27,11 @@ const cartSlice = createSlice({
         state.cart.push(action.payload);
       }
     },
-    removeToCart: (state, action: PayloadAction<any>) => {
+    removeToCart: (state, action: PayloadAction<number>) => {
       //Remove product from the cart
       state.cart = state.cart.filter((item) => item.id !== action.payload);
     },
-    decreaseProductQuantity: (state, action) => {
+    decreaseProductQuantity: (state, action: PayloadAction<number>) => {
       // Find product that already exist in the cart
       const product = state.cart.find((item) => item.id === action.payload);
       // Check product quantity greater than 1

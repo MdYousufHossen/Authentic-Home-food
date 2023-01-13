@@ -30,20 +30,23 @@ const Card = ({ blogMiddle, blog, image, product }: cardPropTypes) => {
   };
   const dispatch = useAppDispatch();
 
-  const acceptableProduct: priductItem = {
-    id: product?.id,
-    name: product?.name,
-    vat: product?.vat,
-    image: product?.image,
-    addon: {
-      name: product?.addons[0]?.name,
-      price: product?.addons[0]?.price,
-    },
-    price: product?.price,
-    quantity_available: product?.quantity_available,
+  // const acceptableProduct = {
+  //   id: product?.id,
+  //   name: product?.name,
+  //   vat: product?.vat,
+  //   image: product?.image,
+  //   addon: {
+  //     name: product?.addons[0]?.name,
+  //     price: product?.addons[0]?.price,
+  //   },
+  //   price: product?.price,
+  //   quantity_available: product?.quantity_available,
+  //   quantity: 1,
+  // };
+  const acceptableProduct = {
+    ...product,
     quantity: 1,
   };
-
   const handleAddToCard = () => {
     dispatch(addToCart(acceptableProduct));
   };

@@ -52,7 +52,7 @@ const Snackbar = ({ timeout, variant }: PropsType) => {
 
   return (
     SHOW && (
-      <Container variant={Variant} time={TIME}>
+      <Container variant={Variant as PropsType["variant"]} time={TIME}>
         <p>{MESSAGE}</p>
         <Button>
           <Icon

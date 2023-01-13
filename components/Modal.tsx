@@ -32,7 +32,7 @@ const Modal = ({ open, control }: ModalPropType) => {
       price: item.price,
       quantity: item.quantity,
       vat: item.vat,
-      addon: item.addon,
+      addon: item.addons,
     };
   });
   const postData = {
