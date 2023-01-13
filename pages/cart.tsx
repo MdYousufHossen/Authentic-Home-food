@@ -1,7 +1,9 @@
+import AppBar from "@components/AppBar";
 import Container from "@components/Container";
 import { Icon, ICON_NAME } from "@components/Icon";
 import Modal from "@components/Modal";
 import Row from "@components/Row";
+import Snackbar from "@components/Snackbar";
 import Typography from "@components/Typography";
 import {
   addToCart,
@@ -32,9 +34,12 @@ const Cart = () => {
   };
   return (
     <Fragment>
+      <Container background="#0C1712" width="100%">
+        <AppBar />
+      </Container>
       {cart.length >= 1 ? (
-        <Container width="100%" displayFlex>
-          <Container pt="20px" width="50%">
+        <Container width="100%" displayFlex mobile={"flex-direction:column"}>
+          <Container pt="20px" width="50%" mobile={"width:100%"}>
             <Typography pb="20px" align="center" variant="title3">
               Shopping Cart
             </Typography>
@@ -108,7 +113,7 @@ const Cart = () => {
               })}
             </Container>
           </Container>
-          <Container width="40%">
+          <Container width="40%" mobile={"width:100%; margin-top:20px"}>
             <Typography align="center" variant="title3">
               Cart Details
             </Typography>
@@ -127,11 +132,14 @@ const Cart = () => {
           </Container>
         </Container>
       ) : (
-        <Typography align="center" variant="title3">
-          Please add to Cart.
-        </Typography>
+        <>
+          <Typography align="center" variant="title3">
+            Please add to Cart.
+          </Typography>
+        </>
       )}
       <Modal open={opened} control={controleModal} />
+      <Snackbar variant="warning" timeout={3000} />
     </Fragment>
   );
 };

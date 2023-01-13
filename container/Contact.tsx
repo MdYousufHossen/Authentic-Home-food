@@ -5,8 +5,13 @@ import FormStyle from "@styles/Input";
 const Contact = () => {
   return (
     <Container width="100%" background="#F7F8FA">
-      <Container pb="50px" pt="50px" displayFlex>
-        <Container width="70%">
+      <Container
+        pb="50px"
+        pt="50px"
+        displayFlex
+        mobile={"flex-direction:column"}
+      >
+        <Container width="70%" mobile={"width:100%"}>
           <Typography variant="title5">Do you have a question</Typography>
           <Typography variant="title5">or want to become a seller?</Typography>
           <Typography pb="20px" variant="body1">
@@ -30,7 +35,7 @@ const Contact = () => {
             <FormStyle.TextArea br="10px" rows={10} cols={85} />
           </FormStyle.Wrapper>
         </Container>
-        <Container width="fit-content">
+        <Container width="fit-content" mobile={"width:100%"}>
           <Delivery />
         </Container>
       </Container>

@@ -31,8 +31,8 @@ const StyledWrapper = {
 };
 
 const AppBar = () => {
-  const { cart } = useAppSelector((state) => state.cart);
-  const quantity = cart?.reduce((a, b) => a + b.quantity, 0);
+  const { cart } = useAppSelector((state) => state?.cart);
+  const quantity = cart.reduce((a, b) => a + b.quantity, 0);
   const [opened, setOpened] = useState<boolean>(false);
   const controleModal = () => {
     setOpened((prevState) => !prevState);
@@ -40,11 +40,24 @@ const AppBar = () => {
 
   return (
     <Fragment>
-      <Container width="80%" padding="20px" displayFlex justifyBetween>
-        <Container width="100%">
-          <Icon name={ICON_NAME.Logo} height={65} width={128} />
+      <Container
+        width="80%"
+        mobile={"width:100%"}
+        padding="20px"
+        displayFlex
+        justifyBetween
+      >
+        <Container width="fit-content">
+          <Link href="/">
+            <Icon name={ICON_NAME.Logo} height={65} width={128} />
+          </Link>
         </Container>
-        <Container width="100%" displayFlex alignItemsCenter>
+        <Container
+          width="fit-content"
+          mobile={"display:none"}
+          displayFlex
+          alignItemsCenter
+        >
           <Typography pr="10px" color="white" variant="title">
             Home
           </Typography>
@@ -61,7 +74,12 @@ const AppBar = () => {
             Contact
           </Typography>
         </Container>
-        <Container width="20%" alignItemsCenter justifyBetween displayFlex>
+        <Container
+          width="fit-content"
+          alignItemsCenter
+          justifyBetween
+          displayFlex
+        >
           <Icon name={ICON_NAME.Search} height={21} width={21} />
           <Container width="fit-content">
             <Link href="/cart">

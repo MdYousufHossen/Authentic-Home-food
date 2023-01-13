@@ -1,8 +1,9 @@
 import { usePlaceOrderMutation } from "@features/cart/cartApi";
-import { resetCart } from "@features/cart/cartSlice";
+import { resetCart, toggleSnackbarOpen } from "@features/cart/cartSlice";
 import FormStyle from "@styles/form";
 import ModalStyle from "@styles/modal";
 import { useAppDispatch, useAppSelector } from "app/hooks";
+import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 import getPrice from "utils/getPrice";
 import Container from "./Container";
@@ -20,7 +21,7 @@ const Modal = ({ open, control }: ModalPropType) => {
   const [phone, setPhone] = useState<string>("");
   const [placeOrder, { data, isLoading, error, isError, isSuccess }] =
     usePlaceOrderMutation();
-
+  const router = useRouter();
   const { cart } = useAppSelector((state) => state.cart);
   const totalPrice = getPrice(cart, "totalPrice");
   const totalVat = getPrice(cart, "totalVat");
@@ -51,6 +52,13 @@ const Modal = ({ open, control }: ModalPropType) => {
       setAddress("");
       setPhone("");
       dispatch(resetCart());
+      router.push("/");
+      dispatch(
+        toggleSnackbarOpen({
+          message: "Successfully order placed!",
+          variant: "success",
+        })
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
@@ -59,13 +67,6 @@ const Modal = ({ open, control }: ModalPropType) => {
     placeOrder(postData);
   };
 
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [open]);
   return open ? (
     <Fragment>
       <ModalStyle.Background onClick={control}> </ModalStyle.Background>

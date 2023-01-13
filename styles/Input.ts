@@ -20,6 +20,7 @@ const Input = styled.input<InputPropsType>`
   }
 `;
 const Button = styled.button`
+  position: absolute;
   all: unset;
   outline: none;
   cursor: pointer;
