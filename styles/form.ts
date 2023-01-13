@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import { device } from "universal/breakpoints/displayBreakpoints";
 
 const Wrapper = styled.form`
   margin: 0 auto;
   width: 250px;
+
   // border: 1px solid red;
 `;
 const Input = styled.input`
@@ -11,6 +13,10 @@ const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 0.5em;
   margin: 10px 0;
+  // background: red;
+  // @media ${device.mobileL} {
+  //   background: red;
+  // }
 `;
 const TextArea = styled.textarea`
   width: 240px;
