@@ -8,7 +8,9 @@ const OurBlog = () => {
       <Container
         width="100%"
         displayFlex
-        mobile={"flex-direction:column"}
+        mobile={"flex-direction:column; width:100%;"}
+        tablet={"flex-direction:column; width:100%;"}
+        landscape={"flex-direction:column; width:100%;"}
         justifyContentCenter
         justifyBetween
       >

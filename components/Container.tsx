@@ -23,6 +23,11 @@ interface ContainerProps {
   flexWrape?: boolean;
   padding?: string;
   mobile?: {};
+  tablet?: {};
+  landscape?: {};
+  laptopS?: {};
+  laptopL?: {};
+  largeScreen?: {};
   styles?: {};
   overflowScrollX?: boolean;
   overflowScrollY?: boolean;
@@ -66,12 +71,24 @@ const Container = styled.div<ContainerProps>`
     ` ::-webkit-scrollbar {
         display: none;
     }`}
-    @media ${device.mobileL} {
+   @media ${device.mobile} {
     ${(p) => p.mobile}
   }
-  // @media ${device.tablet} {
-  //   ${(p) => p.mobile}
-  // }
+  @media ${device.tablet} {
+    ${(p) => p.tablet}
+  }
+  @media ${device.landscape} {
+    ${(p) => p.landscape}
+  }
+  @media ${device.laptopS} {
+    ${(p) => p.laptopS}
+  }
+  @media ${device.laptopL} {
+    ${(p) => p.laptopL}
+  }
+  @media ${device.largeScreen} {
+    ${(p) => p.largeScreen}
+  }
 `;
 
 export default Container;
