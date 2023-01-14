@@ -3,6 +3,8 @@ import { useAppDispatch } from "app/hooks";
 import Image from "next/image";
 import { Fragment } from "react";
 import styled from "styled-components";
+import { breakpoints } from "universal/breakpoints/Breakpoint";
+import { screeinBreakpoints } from "universal/breakpoints/displayBreakpoints";
 import Container from "./Container";
 import { Icon, ICON_NAME } from "./Icon";
 import Typography from "./Typography";
@@ -13,9 +15,19 @@ const CardStyled = {
     background: #ffffff;
     box-shadow: 0px 0px 1px rgba(187, 187, 187, 0.25);
     border-radius: 0px 0px 10px 10px;
+    ${breakpoints("width", "px", [
+      { [screeinBreakpoints.landscape]: 277 },
+      { [screeinBreakpoints.tablet]: 277 },
+      { [screeinBreakpoints.mobile]: 277 },
+    ])};
   `,
   Image: styled(Image)`
     border-radius: 10px 10px 0px 0px;
+    ${breakpoints("width", "px", [
+      { [screeinBreakpoints.landscape]: 277 },
+      { [screeinBreakpoints.tablet]: 277 },
+      { [screeinBreakpoints.mobile]: 277 },
+    ])};
   `,
 };
 interface cardPropTypes {
