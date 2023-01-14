@@ -9,7 +9,8 @@ const Footer = () => {
         pt="20px"
         pb="20px"
         displayFlex
-        mobile={"flex-direction:column"}
+        mobile={"flex-direction:column; text-align:center"}
+        tablet={"flex-direction:column; text-align:center"}
         justifyBetween
         alignItemsCenter
       >
@@ -40,7 +41,7 @@ const Footer = () => {
             Contact
           </Typography>
         </Container>
-        <Container width="20%" displayFlex justifyBetween>
+        <Container width="20%" gap="10px" displayFlex justifyBetween>
           <Icon name={ICON_NAME.Facebook} height={26} width={28} />
           <Icon name={ICON_NAME.Instagram} height={26} width={28} />
         </Container>

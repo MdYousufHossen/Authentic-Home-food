@@ -5,7 +5,7 @@ import { screeinBreakpoints } from "universal/breakpoints/displayBreakpoints";
 
 export const StyledImage = styled(Image)`
   ${breakpoints("width", "px", [
-    { [screeinBreakpoints.laptopL]: 600 },
+    { [screeinBreakpoints.laptopL]: 450 },
     { [screeinBreakpoints.laptopS]: 400 },
     { [screeinBreakpoints.landscape]: 400 },
     { [screeinBreakpoints.tablet]: 300 },

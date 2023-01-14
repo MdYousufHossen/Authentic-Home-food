@@ -42,7 +42,8 @@ const AppBar = () => {
     <Fragment>
       <Container
         width="80%"
-        mobile={"width:100%"}
+        mobile={"width:100%;"}
+        tablet={"width:100%;"}
         padding="20px"
         displayFlex
         justifyBetween
@@ -55,6 +56,7 @@ const AppBar = () => {
         <Container
           width="fit-content"
           mobile={"display:none"}
+          tablet={"display:none"}
           displayFlex
           alignItemsCenter
         >

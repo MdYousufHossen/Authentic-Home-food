@@ -38,7 +38,12 @@ const Cart = () => {
         <AppBar />
       </Container>
       {cart.length >= 1 ? (
-        <Container width="100%" displayFlex mobile={"flex-direction:column"}>
+        <Container
+          width="100%"
+          displayFlex
+          mobile={"flex-direction:column; width:100%;"}
+          tablet={"flex-direction:column; width:100%;"}
+        >
           <Container pt="20px" width="50%" mobile={"width:100%"}>
             <Typography pb="20px" align="center" variant="title3">
               Shopping Cart

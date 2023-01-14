@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "universal/breakpoints/Breakpoint";
-import {
-  device,
-  screeinBreakpoints,
-} from "universal/breakpoints/displayBreakpoints";
+import { screeinBreakpoints } from "universal/breakpoints/displayBreakpoints";
 
 interface InputPropsType {
   br?: string;
@@ -26,9 +23,12 @@ const Input = styled.input<InputPropsType>`
   &:focus {
     outline: none;
   }
-  @media (${device.mobile}) {
-    ${(p) => p.mobile}
-  }
+  ${breakpoints("width", "px", [
+    { [screeinBreakpoints.laptopS]: 250 },
+    { [screeinBreakpoints.landscape]: 230 },
+    { [screeinBreakpoints.tablet]: 200 },
+    { [screeinBreakpoints.mobile]: 150 },
+  ])};
 `;
 const Button = styled.button`
   position: absolute;
