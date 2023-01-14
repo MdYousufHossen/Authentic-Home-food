@@ -17,5 +17,6 @@ export const breakpoints = (
     }
     `);
   }, "");
+  //@ts-ignore
   return css([breakpointProps]);
 };
